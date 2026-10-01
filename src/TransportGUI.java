@@ -283,7 +283,7 @@ public class TransportGUI extends JFrame {
         return btn;
     }
 
-    private void navigateTo(int idx) {
+    public void navigateTo(int idx) {
         for (int i = 0; i < navBtns.length; i++) {
             boolean a = (i == idx);
             navBtns[i].putClientProperty("active", a);
@@ -336,7 +336,7 @@ public class TransportGUI extends JFrame {
         return bar;
     }
 
-    private void setStatus(String msg) {
+    public void setStatus(String msg) {
         statusLabel.setText("\u25CF " + msg);
         statusLabel.setForeground(ACCENT2);
         javax.swing.Timer t = new javax.swing.Timer(3000, e -> {
@@ -346,6 +346,13 @@ public class TransportGUI extends JFrame {
         t.setRepeats(false);
         t.start();
     }
+
+    public JPanel getContentPanel() { return contentPanel; }
+    public DefaultTableModel getStudentTM() { return studentTM; }
+    public DefaultTableModel getBusTM() { return busTM; }
+    public DefaultTableModel getDriverTM() { return driverTM; }
+    public DefaultTableModel getRouteTM() { return routeTM; }
+    public DefaultTableModel getStopTM() { return stopTM; }
 
     // =========================================================
     // COMPONENT HELPERS

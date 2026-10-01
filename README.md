@@ -50,19 +50,26 @@ A school requires a system to manage buses, drivers, routes, students, and trans
 ```
 SchoolBusTrackingSystem/
 ├── src/
-│   ├── Main.java              # Controller — all data structures and business logic
-│   ├── TransportGUI.java      # Swing GUI — 8-panel sidebar navigation
-│   ├── Bus.java               # Bus entity with Student[] seating array
-│   ├── Student.java           # Student entity
-│   ├── Driver.java            # Driver entity
-│   ├── Route.java             # Route entity with LinkedList<Stop>
-│   ├── Stop.java              # Stop entity
+│   ├── Main.java                     # Controller — all data structures and business logic
+│   ├── TransportGUI.java             # Swing GUI — 8-panel sidebar navigation
+│   ├── Bus.java                      # Bus entity with Student[] seating array
+│   ├── Student.java                  # Student entity
+│   ├── Driver.java                   # Driver entity
+│   ├── Route.java                    # Route entity with LinkedList<Stop>
+│   ├── Stop.java                     # Stop entity
 │   └── TransportationException.java  # Custom exception
-├── out/                       # Compiled .class files
-├── screenshots/               # GUI screenshots
+├── Implementation SS/                # Operational implementation screenshots
+├── out/                              # Compiled .class files
+├── DOCUMENTATION.md                  # Comprehensive project documentation
 ├── .gitignore
 └── README.md
 ```
+
+---
+
+## Documentation
+For complete technical documentation, data structure analysis, test verification matrix, and architecture details, refer to:
+- **[DOCUMENTATION.md](DOCUMENTATION.md)**
 
 ---
 
@@ -95,61 +102,82 @@ The application pre-loads 5 demo records in every module on startup so you can e
 
 ---
 
-## GUI Screenshots
+## Implementation Screenshots
 
-### Students Panel
-Displays all registered students with their assigned bus. Click any row to prefill the form for quick edits.
+### 1. Student Management
+Displays all registered students with assigned buses. Fill in details to add students; select any row to prefill for updates or deletion.
 
-![Students Panel](screenshots/ss_students.png)
-
----
-
-### Buses Panel
-Shows all buses with capacity, current passenger count, and assigned driver.
-
-![Buses Panel](screenshots/ss_buses.png)
+![Students Panel](Implementation%20SS/01_students_management.png)
 
 ---
 
-### Drivers Panel
-Manage driver records and assign drivers to buses.
+### 2. Bus Fleet Management
+Shows the entire fleet with total capacities, passenger counts (`Passengers / Capacity`), and assigned drivers.
 
-![Drivers Panel](screenshots/ss_drivers.png)
-
----
-
-### Routes Panel
-Lists all routes with stop count. Routes are stored in a TreeMap (auto-sorted by route number).
-
-![Routes Panel](screenshots/ss_routes.png)
+![Buses Panel](Implementation%20SS/02_bus_management.png)
 
 ---
 
-### Stops Panel
-Manage bus stops and assign them to routes.
+### 3. Driver Management
+Register drivers with phone numbers and commercial licenses, and assign drivers to buses.
 
-![Stops Panel](screenshots/ss_stops.png)
-
----
-
-### Allocation Panel
-Assign a student to a bus. Capacity is enforced — if the bus is full, a `TransportationException` is raised and the student's previous bus assignment is preserved (atomic operation).
-
-![Allocation Panel](screenshots/ss_allocation.png)
+![Drivers Panel](Implementation%20SS/03_driver_management.png)
 
 ---
 
-### Search and Sort Panel
-Search students by ID or name, search buses and routes, and sort records.
+### 4. Route Management
+Lists transportation routes stored in a `TreeMap` (auto-sorted by route number) with current stop counts.
 
-![Search and Sort Panel](screenshots/ss_search.png)
+![Routes Panel](Implementation%20SS/04_routes_management.png)
 
 ---
 
-### History and Report Panel
-View a log of all allocation events and generate a full system transport report.
+### 5. Stop Management
+Manage pickup/drop-off locations and attach them to transport routes.
 
-![History and Report Panel](screenshots/ss_history.png)
+![Stops Panel](Implementation%20SS/05_stops_management.png)
+
+---
+
+### 6. Student Bus Allocation
+Assign students to buses with automatic seating checks. If the bus is full, atomic protection prevents overbooking.
+
+![Allocation Panel](Implementation%20SS/06_student_bus_allocation.png)
+
+---
+
+### 7. Search Functionality
+Search by Student ID, Student Name, Bus Number, or Route Number.
+
+![Search Panel](Implementation%20SS/07_search_student.png)
+
+---
+
+### 8. Sorting Algorithms
+Sort buses in ascending capacity order using `ArrayList` and `Comparator`.
+
+![Sort Buses](Implementation%20SS/08_sort_buses.png)
+
+---
+
+### 9. Travel History & Audit Trail
+Sequential chronological log of student allocation activities.
+
+![History Panel](Implementation%20SS/09_travel_history.png)
+
+---
+
+### 10. System Transport Report
+Generate complete system-wide transportation audit reports.
+
+![Report Panel](Implementation%20SS/10_transport_report.png)
+
+---
+
+### 11. Capacity Constraint Enforcement
+Demonstrates custom exception (`TransportationException`) triggered when attempting to overbook a bus.
+
+![Capacity Exception](Implementation%20SS/11_capacity_exception.png)
 
 ---
 

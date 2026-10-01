@@ -295,7 +295,7 @@ public class Main {
 
 
 
-    private static void loadDemoData() {
+    public static void loadDemoData() {
 
         // 5 Buses (ArrayList + HashMap)
         addBus(new Bus(1, "Blue Express",   40));
